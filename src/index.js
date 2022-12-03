@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Ethers from './Context/EthersContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Searcher from './Context/SearchContext';
+import "@biconomy/web3-auth/dist/src/style.css"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Searcher>
+    <Ethers><App /></Ethers>
+    </Searcher>
   </React.StrictMode>
 );
 

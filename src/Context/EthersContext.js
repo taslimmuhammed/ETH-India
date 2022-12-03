@@ -16,28 +16,16 @@ export default function Ethers({ children }) {
 
   const checkIfWalletIsConnect = async () => {
     try {
-      // if (!ethereum) return alert("Please install MetaMask.");
-
-      // const accounts = await ethereum.request({ method: "eth_accounts" });
-
-      // if (accounts.length) {
-      //   setCurrentAccount(accounts[0]); 
-      // } else {
-      //   alert("No accounts found");
-      // }
-
       await socialLoginSDK.init('0x89'); // Enter the network id in hex) parameter
-      socialLoginSDK.showConnectModal();
-
-      // show connect modal
-      socialLoginSDK.showWallet();
       if (!socialLoginSDK?.web3auth?.provider) {
-        alert("Provideer not found")
-        return ;
-      }else {
+        alert("Please sign in using to countinue")
+        socialLoginSDK.showConnectModal()
+        socialLoginSDK.showWallet()
+        return;
+      } else {
         console.log(socialLoginSDK.web3auth.provider)
       }
-       provider = new ethers.providers.Web3Provider(
+      provider = new ethers.providers.Web3Provider(
         socialLoginSDK.web3auth.provider,
       );
       const accounts = await provider.listAccounts();

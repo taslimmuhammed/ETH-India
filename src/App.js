@@ -8,7 +8,7 @@ import Create from './Pages/Create';
 import ViewPage from './Pages/ViewPage';
 import Transfer from './Components/Transfer';
 import MyWorks from './Components/MyWorks';
-import MarketPlace from './Pages/MarketPlace'
+// import MarketPlace from './Pages/MarketPlace'
 import ProductDetails from './Pages/ProductDetails'
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
           <Route path='/view'  element={<ViewPage/>}></Route>
           <Route path='/transfer'  element={<Transfer/>}></Route>
           <Route path='/myworks'  element={<MyWorks/>}></Route>
-          <Route path='/marketplace'  element={<MarketPlace/>}></Route>
+          {/* <Route path='/marketplace'  element={<MarketPlace/>}></Route> */}
           <Route path='/productdetails'  element={<ProductDetails/>}></Route>
 
         </Routes>

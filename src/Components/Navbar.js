@@ -22,9 +22,10 @@ const Navbar = () => {
         <img src={logo} alt="logo" className="w-32 cursor-pointer" />
       </div>
       <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
-      <li onClick={()=>navigate('myworks')} className="navbar_item">Your Works</li>
-      <li onClick={()=>navigate('create')} className="navbar_item">Create</li>
-          <li onClick={()=>navigate('transfer')} className="navbar_item">Transfer Ownership</li>
+      <li onClick={()=>navigate('/myworks')} className="navbar_item">Your Works</li>
+      <li onClick={()=>navigate('/create')} className="navbar_item">Create</li>
+      <li onClick={()=>navigate('/marketplace')} className="navbar_item">MarketPlace</li>
+          {/* <li onClick={()=>navigate('transfer')} className="navbar_item">Transfer Ownership</li> */}
          
         <li>
           <input onChange={(e)=>setproSearch(e.target.value)} placeholder="Enter product Id" className="search-bar" ></input>

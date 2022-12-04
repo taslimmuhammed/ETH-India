@@ -1,6 +1,7 @@
 import NFTproduct from "../Components/NFTproduct";
 import { EthersContext } from "../Context/EthersContext";
 import React, {useContext, useEffect, useState} from 'react'
+
 import '../Styles/marketplace.css'
 const MarketPlace = () => {
     const {getAllprojectNos}= useContext(EthersContext)
@@ -20,7 +21,7 @@ const MarketPlace = () => {
             <div className="marketplace_container">
             <h2>Market Place</h2>
             <div className="flex flex-wrap justify-center items-center mt-10">
-                {arr.map((data)=>(<div><NFTproduct name={data.name} licensee={data.lender} inventor={data.Creator} timestamp={data.timeStamp} /></div>))}
+                {arr.map((data)=>(<div><NFTproduct name={data.name} licensee={data.lender} inventor={data.Creator} timestamp={data.timeStamp} id={data.id} /></div>))}
             </div>
             </div>
         </div>

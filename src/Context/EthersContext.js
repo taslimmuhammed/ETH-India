@@ -1,7 +1,8 @@
 import { ethers } from "ethers";
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect,useContext } from "react";
 import { abi } from "../Utils/abi";
 import SocialLogin, { getSocialLoginSDK } from "@biconomy/web3-auth";
+import { SearchContext } from "./SearchContext";
 
 export const EthersContext = createContext(null);
 
@@ -11,9 +12,10 @@ let contract = null
 const socialLoginSDK = new SocialLogin();
 let provider = null
 export default function Ethers({ children }) {
-
+  const {proSearch, setproSearch} = useContext(SearchContext)
   const contractAddress = "0xa39cb7641277711be2C9F7B4ca085a8193361c74"
   const [currentAccount, setCurrentAccount] = useState(null);
+  const [Sell, setSell] = useState(null)
   const [N, setN] = useState();
 const [SContent, setSContent] = useState([])
   const checkIfWalletIsConnect = async () => {
@@ -89,7 +91,8 @@ const [SContent, setSContent] = useState([])
       // const signer = provider.getSigner()
       // const contract = new ethers.Contract(contractAddress, abi, signer)
       const URI = await contract.tokenUris(uri)
-      return (URI)
+      let isSelling  =await contract.isLending(uri)
+      return ({URI, isSelling})
     }
     catch (e) {
       console.log(e)
@@ -110,6 +113,18 @@ const [SContent, setSContent] = useState([])
     return transfer
   }
 
+  const buyToken = async (tokenId, days) => {   
+    const transfer = await contract.buy(tokenId, days)
+    alert("Licensing succecful")
+    return transfer
+  }
+
+  const releaseToMarket = async(tokenId,  minDays , price)=>{
+    const transfer = await contract.releaseToMarket(proSearch,  minDays , price)
+    alert("Succesfully released to market")
+    return transfer 
+  }
+
   
 
   const getAllprojectNos =async()=>{
@@ -120,10 +135,14 @@ const [SContent, setSContent] = useState([])
     let count = await contract.getCount()
     count  =  parseInt(count._hex, 16)
     let output = []
+
     for(let i=3135995787;i<=count ;i++){
      let box =await contract.getCard(i)
      let time =  parseInt(box.timeStamp._hex, 16)
      var date = new window.Date(time);
+     let lender = box.lender
+     console.log(box.lender)
+     if(lender = '0x0000000000000000000000000000000000000000'){ lender ='None' }
       console.log(date)
      let D =  date.getDate()+
      "/"+(date.getMonth()+1)+
@@ -139,16 +158,18 @@ const [SContent, setSContent] = useState([])
       category:box.category,
       ipid:box.ipid,
       timeStamp:D,
-      lender:box.lender,
+      lender:lender,
       owner:box.owner
      }
+
      output.push(newB)
     }
       console.log(output)
       return output
   }
 
-  const getSearchContents =async()=>{
+  const getSignleProductDetails =async()=>{
+  
     const { ethereum } = window
       const provider = new ethers.providers.Web3Provider(ethereum)
       const signer = provider.getSigner()
@@ -170,6 +191,41 @@ const [SContent, setSContent] = useState([])
     }
       console.log(output)
       return output
+  }
+
+  const getProSellDetails =async(tokenId)=>{
+    let box =await contract.getCard(tokenId)
+    let sellDetails = await contract.lendMap(tokenId)
+    let isSelling  =await contract.isLending(tokenId)
+    let price  =await contract.lendPrice(tokenId)
+    price =  parseInt(price._hex, 16)
+    let time =  parseInt(box.timeStamp._hex, 16)
+    var date = new window.Date(time);
+    let lender = box.lender
+    console.log(box.lender)
+    if(lender = '0x0000000000000000000000000000000000000000'){ lender ='None' }
+     console.log(date)
+    let D =  date.getDate()+
+    "/"+(date.getMonth()+1)+
+    "/"+date.getFullYear()
+   //  let T = " "+date.getHours()+
+   //  ":"+date.getMinutes()+
+   //  ":"+date.getSeconds()
+    let newB = {
+     id:tokenId,
+     name:box.name,
+     Creator:box.Creator,
+     Type:box.Type,
+     category:box.category,
+     ipid:box.ipid,
+     timeStamp:D,
+     lender:lender,
+     owner:box.owner,
+     minDate:sellDetails.minDate,
+     isSelling:isSelling,
+     price
+    }
+    return newB
   }
 
   const getMyWorks = async () => {
@@ -242,7 +298,7 @@ const [SContent, setSContent] = useState([])
 
 
   return (
-    <EthersContext.Provider value={{ connectWallet, currentAccount, checkIfWalletIsConnect, createCase, getUri, getOwner, transferOwner, getMyWorks,getAllprojectNos }}>
+    <EthersContext.Provider value={{ connectWallet, currentAccount, checkIfWalletIsConnect, createCase, getUri, getOwner, transferOwner, getMyWorks,getAllprojectNos,Sell, setSell,getProSellDetails,buyToken ,releaseToMarket}}>
       {children}
     </EthersContext.Provider>
   )

@@ -9,8 +9,14 @@ import { EthersContext } from "../Context/EthersContext";
 import { shortenAddress } from "../Utils/ShortenAddress";
 
 const NFTproduct = (props) => {
+    const navigate = useNavigate()
+    const {Sell, setSell} = useContext(EthersContext)
+
     return (
-        <div className='card_body button-64'>
+        <div className='card_body button-64' onClick={()=>{
+            setSell(props.id)
+            navigate('/productdetails')
+            }}>
         <div className='card_text'>
             <p className="text-white font-light text-sm">
             {/* {shortenAddress(currentAccount)} */}

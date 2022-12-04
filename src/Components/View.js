@@ -8,11 +8,13 @@ import { SearchContext } from '../Context/SearchContext';
 import { EthersContext } from '../Context/EthersContext';
 import { Web3Storage } from "web3.storage";
 import Loader from "../Components/Loader";
+import Form2 from "../Components/Form2";
 
 function View() {
     
        const {proSearch, setproSearch} = useContext(SearchContext)
        const {getUri, getOwner} = useContext(EthersContext)
+       const [Selling, setSelling] = useState(true)
        const [Uri, setUri] = useState({name:"", Creator:"",Type:""})
         const [Files, setFiles] = useState()
         const [owner, setowner] = useState("")
@@ -21,6 +23,8 @@ function View() {
         const [Date, setDate] = useState("")
        const getDetails =async ()=>{
            let  struct = await getUri(proSearch)
+           setSelling(struct.isSelling)
+        struct = struct.URI
            let t  = parseInt(struct.timeStamp._hex, 16)
            setTimeStamp(t)
            setUri(struct)
@@ -67,7 +71,7 @@ function View() {
     return (
         <div>
 
-            <div className='gradient-bg-welcome flex w-full min-h-screen justify-center items-center'>
+            <div className='gradient-bg-welcome flex w-full min-h-screen justify-center items-center flex-col'>
                 {/* <Navbar></Navbar> */}
                 <div className='view_main '>
                     <div className='view_top'>
@@ -119,11 +123,18 @@ function View() {
                                  
                               </Row>
 
+
                         </div>
 
                     </div>
                 </div>
                 <div>
+                </div>
+                <div className="form_container">
+                 {
+                   !Selling&&                <Form2></Form2>
+
+                 }
                 </div>
             </div>
         </div>

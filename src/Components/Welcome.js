@@ -15,7 +15,7 @@ const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex jus
 
 
 const Welcome = () => {
-    const {currentAccount, connectWallet} = useContext(EthersContext)
+    const {currentAccount, connectWallet, L1} = useContext(EthersContext)
     const navigate = useNavigate()
     
   return (
@@ -74,7 +74,7 @@ const Welcome = () => {
                <button className="button-85" onClick={()=>{navigate('/create')}}>Create Proof </button>
        </div>:
        <div>
-            <button class="button-63" role="button"  onClick={connectWallet}>Connect Wallet</button>
+            <button class="button-63" role="button" >Connecting Wallet . . . </button>
        </div>
          }
         

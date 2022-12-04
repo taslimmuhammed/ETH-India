@@ -1,0 +1,13 @@
+.productDetails_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.fullDetails {
+    display: flex;
+    overflow-wrap: break-word;
+}
+.form_container{
+    width:500px;
+}

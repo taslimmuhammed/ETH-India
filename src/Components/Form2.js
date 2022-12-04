@@ -8,7 +8,7 @@ import { EthersContext } from "../Context/EthersContext";
 // import { borderColor } from "@mui/system";
 import '../Styles/Create.css'
 const Form = () => {
-
+    const {getUri, getOwner} = useContext(EthersContext)
     const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
     const inputStyle = "my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
     const [MinDur, setMinDur] = useState(null)
@@ -26,6 +26,7 @@ const Form = () => {
 
     return (
         <div className="p-5  flex flex-col justify-start items-center text-left blue-glassmorphism  border-gray-400 m-8">
+            <h1 className="text-white"> Market your IP's</h1>
                <div>
                 
                     <Row>

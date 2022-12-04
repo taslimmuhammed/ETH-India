@@ -25,7 +25,7 @@ const Welcome = () => {
           <Col sm={9} xs={10} lg={6} md={6}>
         <div className="flex flex-1 justify-start items-start flex-col mf:mr-10 w-full">
           <h1 className="text-3xl sm:text-5xl text-white text-gradient py-1 font-light">
-            Create proof<br /> for your Creations
+            Advancing innovation without<br /> compromising commerce.
           </h1>
           <p className="text-left mt-3 text-white font-light md:w-9/12 w-11/12 text-base">
            Protect your Works  with the power of BlockChain technology . 
@@ -40,7 +40,7 @@ const Welcome = () => {
                Secure
             </div>
             <div className={`sm:rounded-bl-2xl ${companyCommonStyles}`}>
-              Polygon
+              FVM
             </div>
             <div className={companyCommonStyles}> Reliabile </div>
             <div className={`rounded-br-2xl ${companyCommonStyles}`}>

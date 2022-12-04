@@ -292,7 +292,7 @@ const [SContent, setSContent] = useState([])
   useEffect(() => {
     checkIfWalletIsConnect();
     // changeNetwork()
-    getN()
+   // getN()
     getAllprojectNos()
   }, []);
 

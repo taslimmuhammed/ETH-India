@@ -1,14 +1,19 @@
-<h1>Ncrypt</h1>
-<h5>Ncrypt is block-chain protected, advanced proof of work application, which can be utilized for claiming the copyrights and patent-ship  of your works or creations. <br/><h3>Problems with current ways</h3>
-Currently patents are protected either by the means of papers or as digital assets . If we take the case  of both , both of the ways are costlier and lacks security . Of course the non-digital ways are secure and do not need any protection regarding cyber attacks, but these has to be protected physically and governments  has to spend huge money protecting them and these are not the ways of future or present, due to lack of easy navigation ,storing etc .  And when we take the case of storing them as digital assets in web2, surely they are viable to cyber attacks and there is a good possibility these might be lost in the future, which is unbearable by the makers who created them. 
+<h1>IPfy</h1>
 
-<br/><br/>
-Well here's where encrypt comes in , by utilizing the security of blockchain we are planning to protect these patent and copy Right documents. The Ncrypt is gonna be a web3 app that stores the metadata in Polygon blockchain (cheapest of available blockchains in terms of gas fee) and uses IPFS (Inter Planetary File System, this is decentralized storage platform) to store files.
+IPfy is platform to list and license copyrighted and patented work. 
 
-<br/>
-  <h3>Buisness Model</h3>
-  <br/>
-In terms of feasibility  we are gonna charge a small amount which will be less than 10% of current charge of taking copyrights or patents , this is more than enough to make a profitable company out of it. Since we don't have any fee for security or any other kind there is almost zero expense from our side, making it more profitable.
-</h5>
+Problems:
+1. IP registering and licensing is a resource intensive task often requiring expensive legal assistance.
+2. Addtionally, creators who provide open source creations/inventions are not appropriately attributed and rewarded. 
+3. It is difficult to asses the vallidity of new inventons and creations.
 
-<h3>Visit ncrypt<h3> <a href= "https://ncrypt.vercel.app/">https://ncrypt.vercel.app/</a>
+Solutions:
+
+People can use IPfy to record their IP on blockchain, license it to users for a fee (fee optional), where all IP license transactions are also recorded on-chain. Potential licensors and licensees have a chat function to communicate for clarifactions. The above stated problems are thus resolved:
+1. External invervention(legal and ors) can be avoided, by automating the licensing process. The creator must only provide details of their IP and its curresponding registration ID. Addtionally, for creators/inventors who want to register their property, but don't have the means to do so with a govt./govt. recognised authority, they may record it on the platform and have a timestamped proof of their creation, serving as reliable evidence. They may also apply for IPfy grants for official registration. 
+2. Creators who publish license fee free work, to promote innovation, shall be attributed if other users use their work. Any person(s) creating new work, relying on another open source work, will display the open source invention/creation card on their profile. Users are also given the CHOICE to make small payments to suppport the open source creators/inventors. 
+3. Potential popularity and utility of the invention/creation may be identified by evaluating the transaction history of the license, recorded on the blockchain. 
+
+Buisness Model:
+ 
+A small percent of the fee paid for license is sent to the platform

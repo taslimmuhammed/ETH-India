@@ -50,7 +50,7 @@ const [SContent, setSContent] = useState([])
 
       // setCurrentAccount(accounts[0]);
       // window.location.reload();
-      await socialLoginSDK.init('0x89'); 
+      await socialLoginSDK.init('0x7AB7'); 
       alert("Please sign in using to countinue")
         socialLoginSDK.showConnectModal()
         socialLoginSDK.showWallet()

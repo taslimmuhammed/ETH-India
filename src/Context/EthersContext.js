@@ -20,7 +20,7 @@ export default function Ethers({ children }) {
 const [SContent, setSContent] = useState([])
   const checkIfWalletIsConnect = async () => {
     try {
-      await socialLoginSDK.init('0x7AB7'); // Enter the network id in hex) parameter
+      await socialLoginSDK.init('0x89'); // Enter the network id in hex) parameter
       if (!socialLoginSDK?.web3auth?.provider) {
         alert("Please sign in using to countinue")
         socialLoginSDK.showConnectModal()

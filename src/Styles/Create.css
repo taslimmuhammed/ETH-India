@@ -1,0 +1,11 @@
+.container1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container1 h2 {
+    padding-bottom: 1rem;
+    color: beige;
+}

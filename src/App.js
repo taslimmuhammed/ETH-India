@@ -8,7 +8,7 @@ import Create from './Pages/Create';
 import ViewPage from './Pages/ViewPage';
 import Transfer from './Components/Transfer';
 import MyWorks from './Components/MyWorks';
-import marketPlace from './Pages/marketPlace'
+import MarketPlace from './Pages/MarketPlace'
 function App() {
   const {Blocks, setBlocks}= useContext(EthersContext)
   const [Files, setFiles] = useState()
@@ -31,7 +31,7 @@ function App() {
           <Route path='/view'  element={<ViewPage/>}></Route>
           <Route path='/transfer'  element={<Transfer/>}></Route>
           <Route path='/myworks'  element={<MyWorks/>}></Route>
-          <Route path='/myworks'  element={<marketPlace/>}></Route>
+          <Route path='/marketplace'  element={<MarketPlace/>}></Route>
         </Routes>
       </Router>
 
